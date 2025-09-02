@@ -718,26 +718,6 @@ class SystemError: Reactor.Component {
     }
 }
 
-class TrustMe: Reactor.Component {
-    function render() {
-        return <div .trust-me #trust-me-box>
-            <div>{translate('Permissions')}</div>
-            <div>{translate('config_acc')}</div>
-            <div #trust-me .link>{translate('Configure')}</div>
-            <div #help-me .link>{translate('Help')}</div>
-        </div>;
-    }
-
-    event click $(#trust-me) {
-        handler.is_process_trusted(true);
-        watch_trust();
-    }
-    
-    event click $(#help-me) {
-        handler.open_url(translate("doc_mac_permission"));
-    }
-}
-
 class CanScreenRecording: Reactor.Component {
     function render() {
         return <div .trust-me #screen-recording-box>
