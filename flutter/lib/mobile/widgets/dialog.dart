@@ -245,35 +245,41 @@ void showServerSettingsWithValue(
           child: Obx(() => Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-//                   buildField(translate('ID Server'), idCtrl, idServerMsg.value,
-//                       autofocus: true),
-//                   SizedBox(height: 8),
-//                   if (!isIOS && !isWeb) ...[
-//                     buildField(translate('Relay Server'), relayCtrl,
-//                         relayServerMsg.value),
-//                     SizedBox(height: 8),
-//                   ],
-//                   buildField(
-//                     translate('API Server'),
-//                     apiCtrl,
-//                     apiServerMsg.value,
-//                     validator: (v) {
-//                       if (v != null && v.isNotEmpty) {
-//                         if (!(v.startsWith('http://') ||
-//                             v.startsWith("https://"))) {
-//                           return translate("invalid_http");
-//                         }
-//                       }
-//                       return null;
-//                     },
-//                   ),
-//                   SizedBox(height: 8),
-//                   buildField('Key', keyCtrl, ''),
-//                   if (isInProgress)
-//                     Padding(
-//                       padding: EdgeInsets.only(top: 8),
-//                       child: LinearProgressIndicator(),
-//                     ),
+                  IgnorePointer(
+                    Child: buildField(translate('ID Server'), idCtrl, idServerMsg.value, autofocus: true),
+                  ),
+                  SizedBox(height: 8),
+                  if (!isIOS && !isWeb) ...[
+                    IgnorePointer(
+                      Child: buildField(translate('Relay Server'), relayCtrl, relayServerMsg.value),
+                    ),
+                    SizedBox(height: 8),
+                  ],
+                  IgnorePointer(
+                      Child: buildField(
+                        translate('API Server'),
+                        apiCtrl,
+                        apiServerMsg.value,
+                        validator: (v) {
+                          if (v != null && v.isNotEmpty) {
+                            if (!(v.startsWith('http://') ||
+                                v.startsWith("https://"))) {
+                              return translate("invalid_http");
+                            }
+                          }
+                          return null;
+                        },
+                      ),
+                  ),
+                  SizedBox(height: 8),
+                  IgnorePointer(
+                     Child: buildField('Key', keyCtrl, ''),
+                  ),
+                  if (isInProgress)
+                    Padding(
+                      padding: EdgeInsets.only(top: 8),
+                      child: LinearProgressIndicator(),
+                    ),
                 ],
               )),
         ),
