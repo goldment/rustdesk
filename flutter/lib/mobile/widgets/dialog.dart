@@ -246,11 +246,11 @@ void showServerSettingsWithValue(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   buildField(translate('ID Server'), idCtrl, idServerMsg.value,
-                      autofocus: true, readOnly: true),
+                      autofocus: true),
                   SizedBox(height: 8),
                   if (!isIOS && !isWeb) ...[
                     buildField(translate('Relay Server'), relayCtrl,
-                        relayServerMsg.value, readOnly: true),
+                        relayServerMsg.value),
                     SizedBox(height: 8),
                   ],
                   buildField(
@@ -265,10 +265,10 @@ void showServerSettingsWithValue(
                         }
                       }
                       return null;
-                    }, readOnly: true
+                    },
                   ),
                   SizedBox(height: 8),
-                  buildField('Key', keyCtrl, '', readOnly: true),
+                  buildField('Key', keyCtrl, ''),
                   if (isInProgress)
                     Padding(
                       padding: EdgeInsets.only(top: 8),
