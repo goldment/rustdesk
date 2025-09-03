@@ -245,36 +245,6 @@ void showServerSettingsWithValue(
           child: Obx(() => Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  buildField(translate('ID Server'), idCtrl, idServerMsg.value,
-                      autofocus: true, readonly: true),
-                  SizedBox(height: 8),
-                  if (!isIOS && !isWeb) ...[
-                    buildField(translate('Relay Server'), relayCtrl,
-                        relayServerMsg.value, enabled: false),
-                    SizedBox(height: 8),
-                  ],
-                  buildField(
-                    translate('API Server'),
-                    apiCtrl,
-                    apiServerMsg.value,
-                    validator: (v) {
-                      if (v != null && v.isNotEmpty) {
-                        if (!(v.startsWith('http://') ||
-                            v.startsWith("https://"))) {
-                          return translate("invalid_http");
-                        }
-                      }
-                      return null;
-                    },
-                    readonly
-                  ),
-                  SizedBox(height: 8),
-                  buildField('Key', keyCtrl, '', enabled),
-                  if (isInProgress)
-                    Padding(
-                      padding: EdgeInsets.only(top: 8),
-                      child: LinearProgressIndicator(),
-                    ),
                 ],
               )),
         ),
