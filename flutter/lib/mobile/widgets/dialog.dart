@@ -246,15 +246,11 @@ void showServerSettingsWithValue(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   buildField(translate('ID Server'), idCtrl, idServerMsg.value,
-                      autofocus: true,
-                      enabled: false // 关键：禁用输入框
-                      ),
+                      autofocus: true),
                   SizedBox(height: 8),
                   if (!isIOS && !isWeb) ...[
                     buildField(translate('Relay Server'), relayCtrl,
-                        relayServerMsg.value,
-                        enabled: false // 关键：禁用输入框
-                        ),
+                        relayServerMsg.value),
                     SizedBox(height: 8),
                   ],
                   buildField(
@@ -270,12 +266,9 @@ void showServerSettingsWithValue(
                       }
                       return null;
                     },
-                    enabled: false // 关键：禁用输入框
                   ),
                   SizedBox(height: 8),
-                  buildField('Key', keyCtrl, '',
-                    enabled: false // 关键：禁用输入框
-                  ),
+                  buildField('Key', keyCtrl, ''),
                   if (isInProgress)
                     Padding(
                       padding: EdgeInsets.only(top: 8),
